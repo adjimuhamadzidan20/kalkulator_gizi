@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="adjimuhamadzidan">
+	<title>Kalkulator AKG</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<style>
+		#foto {
+			background-image: url('foto/background.jpg');
+			background-size: cover;
+			background-position: center;
+		}
+
+		.info {
+			text-align: justify;
+		}
+	</style>
+</head>
+<body>
+	<div class="container px-4 px-sm-0">
+		<div class="row justify-content-center mt-4 mb-4">
+			<div class="col-12 col-lg-5 mb-4 mb-lg-0" id="form_bmr_1">
+				<div class="card bg-light border-0">
+				  <div class="card-body">
+				  	<div class="mb-4">
+				  		<h3>Periksa Jumlah AKG Anda</h3>
+				  	</div>
+
+				  	<div class="pesan"></div>
+
+				  	<div class="mb-3">
+						  <label for="usia" class="form-label">Nama Anda</label>
+						  <input type="text" class="form-control" id="nama" placeholder="Masukan Nama Anda">
+						</div>
+				    <div class="mb-3">
+						  <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+						  <select class="form-select" aria-label="Default select example" id="jenis_kelamin">
+							  <option value="" selected>-- Pilih Jenis Kelamin --</option>
+							  <option value="Laki-laki">Laki-laki</option>
+							  <option value="Perempuan">Perempuan</option>
+							</select>
+						</div>
+						<div class="mb-3">
+						  <label for="usia" class="form-label">Usia</label>
+						  <input type="text" class="form-control" id="usia" placeholder="Usia Anda">
+						</div>
+						<div class="mb-3">
+						  <label for="tinggi_badan" class="form-label">Tinggi Badan</label>
+						  <input type="text" class="form-control" id="tinggi_badan" placeholder="Masukan Tinggi Badan">
+						</div>
+						<div class="mb-3">
+						  <label for="berat_badan" class="form-label">Berat Badan</label>
+						  <input type="text" class="form-control" id="berat_badan" placeholder="Masukan Berat Badan">
+						</div>
+						<div class="mb-4">
+							<label for="jenis_kelamin" class="form-label">Tingkat Aktifitas</label>
+						  <select class="form-select" aria-label="Default select example" id="aktifitas">
+							  <option value="" selected>-- Pilih Tingkatan --</option>
+							  <option value="Sangat jarang berolahraga">Sangat jarang berolahraga</option>
+							  <option value="Jarang olahraga">Jarang olahraga (1-3 kali per minggu)</option>
+							  <option value="Cukup olahraga">Cukup olahraga (3-5 kali per minggu)</option>
+							  <option value="Sering olahraga">Sering olahraga (6-7 kali per minggu)</option>
+							  <option value="Sangat sering olahraga">Sangat sering olahraga (sekitar 2 kali dalam sehari)</option>
+							</select>
+						</div>
+						<div class="mb-2">
+            	<div class="row">
+
+            		<div class="col" id="load_check">
+            			<button type="button" class="btn btn-info text-white w-100" id="hitung_bmi">Hitung AKG</button>
+            		</div>
+            		
+            		<div class="col">
+            			<button type="button" class="btn btn-info text-white w-100" id="reset">Reset</button>
+            		</div>
+
+            	</div>
+						</div>
+				  </div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-6" id="form_bmr_2">
+				<div style="text-align: justify;">
+					<div class="judul mb-3">
+						<h3>Kalkulator Angka Kecukupan Gizi (AKG)</h3>
+					</div>
+					<div class="desk">
+						<p>Angka Kecukupan Gizi (AKG) adalah nilai yang menunjukkan kebutuhan gizi rata-rata di suatu wilayah, di Indonesia aturan ini dikeluarkan oleh Kementerian Kesehatan. Gizi yang harus dipenuhi antara lain energi, protein, lemak, karbohidrat, serat, vitamin, mineral, dan air. Nah, karena setiap orang memiliki berat badan, tinggi badan, dan aktivitas fisik yang berbeda, untuk mengetahui kebutuhan gizinya perlu dihitung lagi secara spesifik.</p>
+
+						<p>Sebagai salah satu upaya menjaga kesehatan tubuh adalah makan makanan yang bergizi seimbang. Namun selain itu, Anda juga perlu tahu berapa jumlah kebutuhan gizi yang sesuai untuk Anda, salah satu caranya adalah dengan menghitung AKG.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col" id="hasil_bmr">
+				<div class="row bg-light rounded">
+					<div class="col-12 col-lg-5 p-4">
+						<div class="mb-3">
+				  		<h3>Hasil Perhitungan AKG</h3>
+				  	</div>
+				  	<div class="data-user">
+				  		<label for=""><b>Nama Anda</b></label> 		
+				  		<p id="hasil_nama"></p>
+							<label for=""><b>Jenis Kelamin</b></label>
+							<p id="hasil_jenkel"></p>
+							<label for=""><b>Usia Anda</b></label>
+							<p id="hasil_usia"></p>							
+							<label for=""><b>Tinggi Badan</b></label>
+							<p id="hasil_tb"></p>
+							<label for=""><b>Berat Badan</b></label>
+							<p id="hasil_bb"></p>
+				  	</div>
+					</div>
+					<div class="col p-4 bg-info text-white text-justify">
+						<div class="row mb-3">
+							<div class="col-12 col-lg">
+								<div class="mb-3">
+									<h3>Hasil Akhir</h3>
+								</div>
+								Untuk hasil kalori yang dibutuhkan anda hariannya adalah :
+								<h2 id="hasil_hitung"></h2>
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col">
+								Berdasarkan aktifitas yang anda lakukan yaitu <span id="hasil_aktifitas"></span>
+								maka hasil akhir total kebutuhan kalori anda adalah :
+								<h2 id="hasil_akhir"></h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								Dengan kebutuhan <span id="hasil_kalori"></span> kalori per harinya, untuk gizi yang perlu dipenuhi yaitu :
+								<ol>
+									<li>Protein 15% dari kalori menjadi <b><span id="protein"></span></b></li>
+									<li>Karbohidrat 60% dari kalori menjadi <b><span id="karbo"></span></b></li>
+									<li>Lemak 15% dari kalori menjadi <b><span id="lemak"></span></b></li>
+								</ol> 
+								Kesimpulannya, kebutuhan gizi Anda dalam sehari adalah <b><span id="protein_2"></span> Gram</b> protein, <b><span id="karbo_2"></span> Gram</b> karbohidrat, dan <b><span id="lemak_2"></span> Gram</b> lemak.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row mb-5 rounded bg-light" id="informasi_tambahan">
+			<div class="col">
+				<div class="row">
+					<div class="col-12 col-lg-8 p-4">
+						<div class="info mb-4">
+				  		<h3>Informasi Tambahan</h3>
+				  		<p>Setelah mengetahui cara menghitung AKG harian Anda, penting juga untuk mengetahui cara mencukupi kebutuhan gizi agar tubuh tetap sehat. Berikut beberapa tips yang bisa Anda lakukan untuk memenuhi kebutuhan gizi.</p>
+				  		<ul type="square">
+				  			<li>Menyantap makanan yang beraneka ragam.</li>
+				  			<li>Memilih makanan alami, bukan hasil pemrosesan.</li>
+				  			<li>Menyeimbangkan jumlah kalori yang masuk dan keluar.</li>
+				  			<li>Makan lebih banyak sayur dan buah-buahan.</li>
+				  			<li>Mengonsumsi beragam sumber protein.</li>
+				  			<li>Minum setidaknya 2,5 L air setiap hari.</li>
+				  			<li>Membatasi konsumsi makanan tinggi garam atau lemak trans seperti junk food.</li>
+				  		</ul>
+				  		<p>Seringkali kita sudah mengetahui yang perlu dilakukan untuk mencukupi kebutuhan gizi kita, namun pasti ada keraguan apakah yang kita lakukan sudah benar, dan bagaimana cara kita memastikan bahwa makanan yang kita konsumsi sudah sesuai aturannya</p>
+				  	</div>
+				  	<div class="kembali">
+				  		<a href="index.html" class="btn btn-info text-white px-4">Mulai Lagi</a>
+				  	</div>
+					</div>
+
+					<div class="col d-none d-lg-block" id="foto"></div>
+				</div>
+			</div>
+		</div>
+	</div>	
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="kalkulasi.js"></script>
+</body>
+</html>
